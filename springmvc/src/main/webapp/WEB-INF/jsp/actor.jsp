@@ -10,7 +10,7 @@
 </script>
 </head>
 <body>
-	sskskdksdkfskdk
+	Hello World!
 	 ${user.first_name}
 </body>
 </html>
