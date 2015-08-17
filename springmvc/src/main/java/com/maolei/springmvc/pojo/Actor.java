@@ -1,4 +1,4 @@
-package com.maolei.springmvc.mapping;
+package com.maolei.springmvc.pojo;
 
 public class Actor {
 	private int actor_id;
