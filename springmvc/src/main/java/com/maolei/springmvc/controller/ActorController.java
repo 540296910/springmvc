@@ -15,7 +15,6 @@ import com.maolei.springmvc.service.ActorService;
 public class ActorController {  
     @Resource  
     private ActorService actorService;  
-      
     @RequestMapping("/showActor")  
     public String toIndex(HttpServletRequest request,Model model){  
         int actorId = Integer.parseInt(request.getParameter("id"));  
