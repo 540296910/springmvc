@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper
+	  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		  
+ <mapper namespace="com.maolei.springmvc.dao.UserDao">
+   <resultMap id="BaseResultMap" type="com.maolei.springmvc.pojo.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+     <result column="role" property="role" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,username,password,role
+  </sql>
+ 	<select id="getUserByUsername" parameterType="String" resultMap="BaseResultMap">
+ 		select  id,username, password, role from actor where username=#{username}
+ 	</select>
+ 	<insert id="addUser" parameterType="com.maolei.springmvc.pojo.User" useGeneratedKeys="true">
+ 		intsert into user(username, password, role) values(#{username},#{password},#{role})
+ 	</insert> 	
+ </mapper>
