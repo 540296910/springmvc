@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.maolei.springmvc.dao.ActorDao;
-import com.maolei.springmvc.mapping.Actor;
+import com.maolei.springmvc.pojo.Actor;
 import com.maolei.springmvc.service.ActorService;
 @Service("actorService")
 public class ActorServiceImpl implements ActorService {

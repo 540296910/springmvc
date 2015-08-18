@@ -5,12 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type="text/javascript">
-	console.log('${user.first_name}');
-</script>
 </head>
 <body>
-	Hello World!
-	 ${user.first_name}
+
 </body>
 </html>

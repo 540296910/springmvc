@@ -4,7 +4,7 @@
 		  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 		  
  <mapper namespace="com.maolei.springmvc.dao.ActorDao">
-   <resultMap id="BaseResultMap" type="com.maolei.springmvc.mapping.Actor" >
+   <resultMap id="BaseResultMap" type="com.maolei.springmvc.pojo.Actor" >
     <id column="actor_id" property="actor_id" jdbcType="INTEGER" />
     <result column="first_name" property="first_name" jdbcType="VARCHAR" />
     <result column="last_name" property="last_name" jdbcType="VARCHAR" />

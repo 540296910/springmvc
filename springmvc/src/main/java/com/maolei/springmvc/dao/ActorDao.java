@@ -2,7 +2,7 @@ package com.maolei.springmvc.dao;
 
 import org.springframework.stereotype.Repository;
 
-import com.maolei.springmvc.mapping.Actor;
+import com.maolei.springmvc.pojo.Actor;
 @Repository
 public interface ActorDao {
     int deleteByPrimaryKey(Integer id);

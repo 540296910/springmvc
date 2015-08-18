@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.test.context.ContextConfiguration;
 
-import com.maolei.springmvc.mapping.Actor;
+import com.maolei.springmvc.pojo.Actor;
 import com.maolei.springmvc.service.ActorService;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})  
 public class ActorServiceTest {
