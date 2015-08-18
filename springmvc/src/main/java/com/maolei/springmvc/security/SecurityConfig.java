@@ -28,32 +28,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("user").password("password")
 				.roles("USER");
 	}
-
-	@Override
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+    	 http
+ 	    .csrf().disable()
+ 	    .authorizeRequests()
+ 	        .antMatchers("/login","/login/form**","/register","/logout").permitAll() // #4
+ 	        .antMatchers("/admin","/admin/**").hasRole("ADMIN") // #6
+ 	        .anyRequest().authenticated() // 7
+ 	        .and()
+ 	    .formLogin()  // #8
+ 	        .loginPage("/login/form") // #9
+ 	        .loginProcessingUrl("/login").usernameParameter("username").passwordParameter("password")
+ 	        .failureUrl("/login/form?error")
+ 	        .permitAll(); // #5
+    }
+    @Override
 	public void configure(WebSecurity web) throws Exception {
 		// 设置不拦截规则
-		
 		web.ignoring().antMatchers("/static/**", "/**/*.jsp");
 
 	}
-
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-	    .formLogin()
-	        .loginPage("/login") 
-	        .permitAll()
-	        .and()
-	    .authorizeRequests()
-	        .anyRequest()
-	        .authenticated();
- // 开启默认登录页面  
- // http.formLogin();  
-
-	}
-	@Bean(name = "expressionHandler")  
-    public DefaultWebSecurityExpressionHandler webSecurityExpressionHandler() {  
-        DefaultWebSecurityExpressionHandler webSecurityExpressionHandler = new DefaultWebSecurityExpressionHandler();  
-        return webSecurityExpressionHandler;  
-    }  
 }
