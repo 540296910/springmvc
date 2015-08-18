@@ -14,7 +14,7 @@
     id,username,password,role
   </sql>
  	<select id="getUserByUsername" parameterType="String" resultMap="BaseResultMap">
- 		select  id,username, password, role from actor where username=#{username}
+ 		select  id,username, password, role from user where username=#{username}
  	</select>
  	<insert id="addUser" parameterType="com.maolei.springmvc.pojo.User" useGeneratedKeys="true">
  		intsert into user(username, password, role) values(#{username},#{password},#{role})
