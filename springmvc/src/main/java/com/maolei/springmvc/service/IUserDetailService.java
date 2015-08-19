@@ -27,9 +27,13 @@ public class IUserDetailService implements UserDetailsService{
 		com.maolei.springmvc.pojo.User user = this.userService.getUserByUsername(username);
  		//为了测试方便，用户就写死了，真实环境可以查询数据库
 	/*	String userlongid = "admin";
-		Md5PasswordEncoder encode = new Md5PasswordEncoder();
+		
 		String password = encode.encodePassword("654321", null);
 		System.out.println("****************************");*/
+		Md5PasswordEncoder encode = new Md5PasswordEncoder();
+		String password = encode.encodePassword(user.getPassword(), "SHA-256");
+//		return new User(user.getUsername(),password, true, true,
+//				true, true, authorities);
 		return new User(user.getUsername(),user.getPassword(), true, true,
 				true, true, authorities);
 	}

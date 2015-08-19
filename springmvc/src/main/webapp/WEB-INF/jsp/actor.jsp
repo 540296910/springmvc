@@ -12,5 +12,6 @@
 <body>
 	Hello World!
 	 ${user.first_name}
+	 <a href="../logout">logout</a>
 </body>
 </html>

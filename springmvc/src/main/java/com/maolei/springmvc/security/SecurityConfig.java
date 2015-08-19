@@ -6,18 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.access.AccessDecisionManager;
-import org.springframework.security.access.AccessDecisionVoter;
-import org.springframework.security.access.vote.AffirmativeBased;
-import org.springframework.security.access.vote.AuthenticatedVoter;
-import org.springframework.security.access.vote.RoleVoter;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
-import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 
 import com.maolei.springmvc.service.IUserDetailService;
 
@@ -44,7 +38,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  	        .loginPage("/login") // #9
  	        .loginProcessingUrl("/login").usernameParameter("username").passwordParameter("password")
  	        .failureUrl("/login/form?error")
- 	        .permitAll(); // #5
+ 	        .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logout/success").permitAll();
+ 	       // .permitAll(); // #5
     	 http.userDetailsService(userDetailsService());
     }
     @Override
@@ -55,7 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
 	public IUserDetailService userDetailsService() {
 		IUserDetailService userDetailsService = new IUserDetailService();
-		System.out.println("ssssssssssssssssssssssssss");
 		return userDetailsService;
 	}
     @Override
@@ -67,8 +61,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// .roles("USER", "ADMIN");
 
 		// ×Ô¶¨ÒåUserDetailsService
-		System.out.println("bbbbbbbbbbbbbbbbbbbbbbb");
-
 		auth.userDetailsService(userDetailsService()).passwordEncoder(
 				new Md5PasswordEncoder());
 
