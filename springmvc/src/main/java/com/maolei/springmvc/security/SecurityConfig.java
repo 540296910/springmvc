@@ -22,7 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void registerGlobalAuthentication(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("user").password("password")
+//		auth.inMemoryAuthentication().withUser("user").password("password")
+//				.roles("USER")
+//				.and().passwordEncoder(new Md5PasswordEncoder());
+		auth.userDetailsService(userDetailsService()).passwordEncoder(
+				new Md5PasswordEncoder()).and().inMemoryAuthentication().withUser("user").password("password")
 				.roles("USER");
 	}
     @Override
@@ -37,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
  	    .formLogin()  // #8
  	        .loginPage("/login") // #9
  	        .loginProcessingUrl("/login").usernameParameter("username").passwordParameter("password")
- 	        .failureUrl("/login/form?error")
+ 	        .failureUrl("/login?error")
  	        .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logout/success").permitAll();
  	       // .permitAll(); // #5
     	 http.userDetailsService(userDetailsService());

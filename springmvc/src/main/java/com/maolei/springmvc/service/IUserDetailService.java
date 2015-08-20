@@ -30,8 +30,10 @@ public class IUserDetailService implements UserDetailsService{
 		
 		String password = encode.encodePassword("654321", null);
 		System.out.println("****************************");*/
-		Md5PasswordEncoder encode = new Md5PasswordEncoder();
-		String password = encode.encodePassword(user.getPassword(), "SHA-256");
+//		Md5PasswordEncoder encode = new Md5PasswordEncoder();
+//		String password = encode.encodePassword(user.getPassword(), user.getUsername());
+		System.out.println("username="+user.getUsername()+";password="+user.getPassword());
+//		System.out.println(password);
 //		return new User(user.getUsername(),password, true, true,
 //				true, true, authorities);
 		return new User(user.getUsername(),user.getPassword(), true, true,

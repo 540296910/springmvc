@@ -16,13 +16,15 @@ public class ActorServiceTest {
 	        Md5PasswordEncoder md5 = new Md5PasswordEncoder();     
 	        // false 表示：生成32位的Hex版, 这也是encodeHashAsBase64的, Acegi 默认配置; true  表示：生成24位的Base64版     
 	        md5.setEncodeHashAsBase64(false);     
-	        String pwd = md5.encodePassword("1234", null);     
-	        System.out.println("MD5: " + pwd + " len=" + pwd.length());     
+	        String pwd = md5.encodePassword("123456", "maoleijia");     
+	        System.out.println("MD5: " + pwd + " len=" + pwd.length());   
+	        String pwd1 = md5.encodePassword("19901025", "maolei");     
+	        System.out.println("MD5: " + pwd1 + " len=" + pwd.length());     
 	    }  
 	    public static void sha_256() throws NoSuchAlgorithmException {       
 	        ShaPasswordEncoder sha = new ShaPasswordEncoder(256);     
 	        sha.setEncodeHashAsBase64(true);     
-	        String pwd = sha.encodePassword("1234", null);     
+	        String pwd = sha.encodePassword("19901025", "maolei");     
 	        System.out.println("哈希算法 256: " + pwd + " len=" + pwd.length());     
 	    }     
 	         

@@ -31,7 +31,7 @@ public class TestMyBatis {
   
     @Test  
     public void test1() {  
-        Actor user = userService.getActorById(1);  
+        Actor user = userService.get(1);  
         // System.out.println(user.getUserName());  
         // logger.info("Öµ£º"+user.getUserName());  
         System.out.println(user.getFirst_name());

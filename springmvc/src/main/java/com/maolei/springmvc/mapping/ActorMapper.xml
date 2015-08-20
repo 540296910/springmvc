@@ -12,7 +12,10 @@
   <sql id="Base_Column_List" >
     actor_id, first_name, last_name
   </sql>
- 	<select id="selectByPrimaryKey" parameterType="int" resultMap="BaseResultMap">
+ 	<select id="get" parameterType="int" resultMap="BaseResultMap">
  		select actor_id,first_name,last_name from actor where actor_id=#{actorId}
- 	</select> 	
+ 	</select>
+ 	<select id="list" resultMap="BaseResultMap">
+ 		select actor_id,first_name,last_name from actor
+ 	</select>  	
  </mapper>
