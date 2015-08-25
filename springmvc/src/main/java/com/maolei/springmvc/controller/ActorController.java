@@ -41,4 +41,12 @@ public class ActorController {
          List<Actor> actor = this.actorService.list();  
          return actor;
     }
+    @RequestMapping(value = "/actor/put", method = RequestMethod.POST)
+    public int put(){
+    	Actor actor = new Actor();
+    	actor.setFirst_name("mao");
+    	actor.setLast_name("lei");
+        int result = this.actorService.insert(actor);  
+         return result;
+    }
 }  
