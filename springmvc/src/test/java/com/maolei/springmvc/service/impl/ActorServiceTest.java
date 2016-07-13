@@ -27,6 +27,7 @@ public class ActorServiceTest {
 	        String pwd = sha.encodePassword("19901025", "maolei");     
 	        System.out.println("¹þÏ£Ëã·¨ 256: " + pwd + " len=" + pwd.length());     
 	    }     
+	    //git comit test
 	         
 	        
 	    public static void sha_SHA_256() {     
