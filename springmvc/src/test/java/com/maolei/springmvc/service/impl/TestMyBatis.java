@@ -22,13 +22,13 @@ public class TestMyBatis {
 //  private ApplicationContext ac = null;  
     @Resource  
     private ActorService userService = null;  
-  
+// git push test
 //  @Before  
 //  public void before() {  
 //      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
 //      userService = (IUserService) ac.getBean("userService");  
 //  }  
-  
+    
     @Test  
     public void test1() {  
         Actor user = userService.get(1);  
