@@ -23,6 +23,7 @@ public class TestMyBatis {
     @Resource  
     private ActorService userService = null;  
 // git push test
+// git ssh testssdfsd
 //  @Before  
 //  public void before() {  
 //      ac = new ClassPathXmlApplicationContext("applicationContext.xml");  
